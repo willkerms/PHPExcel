@@ -7,3 +7,8 @@ The project has not be maintained for years and must not be used anymore. **All 
 ## License
 
 PHPExcel is licensed under [LGPL (GNU LESSER GENERAL PUBLIC LICENSE)](https://github.com/PHPOffice/PHPExcel/blob/master/license.md)
+
+
+## Maintain
+
+PHPExcel mantendo pacote até que seja feito a migração dos projetos para PHPOffice/PhpSpreadsheet
