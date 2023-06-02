@@ -1,6 +1,6 @@
 <?php
 
-class testDataFileIterator implements Iterator
+class testDataFileIterator implements \Iterator
 {
     protected $file;
     protected $key = 0;
@@ -16,14 +16,14 @@ class testDataFileIterator implements Iterator
         fclose($this->file);
     }
 
-    public function rewind()
+    public function rewind() :void
     {
         rewind($this->file);
         $this->current = $this->_parseNextDataset();
         $this->key = 0;
     }
 
-    public function valid()
+    public function valid():bool
     {
         return !feof($this->file);
     }
@@ -33,12 +33,12 @@ class testDataFileIterator implements Iterator
         return $this->key;
     }
 
-    public function current()
+    public function current():mixed
     {
         return $this->current;
     }
 
-    public function next()
+    public function next():void
     {
         $this->current = $this->_parseNextDataset();
         $this->key++;
@@ -50,7 +50,7 @@ class testDataFileIterator implements Iterator
         do {
             //    Only take lines that contain test data and that aren't commented out
             $testDataRow = trim(fgets($this->file));
-        } while (($testDataRow > '') && ($testDataRow{0} === '#'));
+        } while (($testDataRow > '') && ($testDataRow[0] === '#'));
 
         //    Discard any comments at the end of the line
         list($testData) = explode('//', $testDataRow);
