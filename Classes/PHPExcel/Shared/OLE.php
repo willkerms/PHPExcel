@@ -277,15 +277,16 @@ class PHPExcel_Shared_OLE
                 case self::OLE_PPS_TYPE_ROOT:
                     $pps = new PHPExcel_Shared_OLE_PPS_Root(null, null, array());
                     $this->root = $pps;
-                    break;
+                break;
                 case self::OLE_PPS_TYPE_DIR:
                     $pps = new PHPExcel_Shared_OLE_PPS(null, null, null, null, null, null, null, null, null, array());
-                    break;
+                break;
                 case self::OLE_PPS_TYPE_FILE:
                     $pps = new PHPExcel_Shared_OLE_PPS_File($name);
-                    break;
+                break;
                 default:
                     continue;
+				break;
             }
             fseek($fh, 1, SEEK_CUR);
             $pps->Type    = $type;

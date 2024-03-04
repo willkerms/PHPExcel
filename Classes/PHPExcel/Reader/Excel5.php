@@ -2977,7 +2977,8 @@ class PHPExcel_Reader_Excel5 extends PHPExcel_Reader_Abstract implements PHPExce
                         // this fragment compressed
                         $len = min($charsLeft, $limitpos - $pos);
                         for ($j = 0; $j < $len; ++$j) {
-                            $retstr .= $recordData{$pos + $j} . chr(0);
+                            // $retstr .= $recordData{$pos + $j} . chr(0);
+                            $retstr .= substr($recordData, $pos + $j, 1) . chr(0);
                         }
                         $charsLeft -= $len;
                         $isCompressed = false;
